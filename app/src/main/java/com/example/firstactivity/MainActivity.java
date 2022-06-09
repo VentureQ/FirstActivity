@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +23,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(MainActivity.this,"pressed",Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+
+                //显示Intent跳转
+                //Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+
+                //隐式Intent跳转
+//                Intent intent=new Intent("com.example.activitytest.ACTION_START");
+//                intent.addCategory("android.intent.category.DEFAULT");
+
+                //调用系统资源
+                Intent intent=new Intent(Intent.ACTION_VIEW);
+                //intent.setData(Uri.parse("https://www.baidu.com"));//打开网页
+                intent.setData(Uri.parse("tel:10086"));//拨号
                 startActivity(intent);
             }
         });
