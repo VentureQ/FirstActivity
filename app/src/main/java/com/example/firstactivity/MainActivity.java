@@ -3,6 +3,7 @@ package com.example.firstactivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"pressed",Toast.LENGTH_LONG).show();
+//                Toast.makeText(MainActivity.this,"pressed",Toast.LENGTH_LONG).show();
+                Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+                startActivity(intent);
             }
         });
     }
