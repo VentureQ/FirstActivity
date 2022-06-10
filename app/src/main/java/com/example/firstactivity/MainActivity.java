@@ -1,6 +1,6 @@
 package com.example.firstactivity;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -32,9 +32,15 @@ public class MainActivity extends AppCompatActivity {
 //                intent.addCategory("android.intent.category.DEFAULT");
 
                 //调用系统资源
-                Intent intent=new Intent(Intent.ACTION_VIEW);
+//                Intent intent=new Intent(Intent.ACTION_VIEW);
                 //intent.setData(Uri.parse("https://www.baidu.com"));//打开网页
-                intent.setData(Uri.parse("tel:10086"));//拨号
+//                intent.setData(Uri.parse("tel:10086"));//拨号
+
+                //Intent传输数据
+                String data="Date exchange";
+                Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+                intent.putExtra("extra_data",data);
+
                 startActivity(intent);
             }
         });
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.add_item:
                 Toast.makeText(MainActivity.this,"add",Toast.LENGTH_SHORT).show();
